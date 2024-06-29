@@ -1,1 +1,1 @@
-Scripts on written taking python import modules
+Scripts written while taking python import modules

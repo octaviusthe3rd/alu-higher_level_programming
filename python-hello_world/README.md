@@ -1,1 +1,1 @@
-The script 1
+Printing scripts
