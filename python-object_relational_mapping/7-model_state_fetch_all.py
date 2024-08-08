@@ -1,18 +1,24 @@
 #!/usr/bin/python3
-"""Takes in the name of a state as an argument and lists all cities"""
-import MySQLdb
-import sys
+"""Script that lists all State objects from the database hbtn_0e_6_usa"""
 
+import sqlalchemy
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+import sys
+from model_state import Base, State
 
 if __name__ == "__main__":
-    db = MySQLdb.connect(host="localhost", port=3306, user=sys.argv[1],
-                         passwd=sys.argv[2], db=sys.argv[3], charset="utf8")
-    cur = db.cursor()
-    cur.execute("SELECT cities.name FROM cities\
-                INNER JOIN states ON cities.state_id = states.id\
-                WHERE states.name = '{}'\
-                ORDER BY cities.id ASC".format(sys.argv[4]))
-    rows = cur.fetchall()
-    print(", ".join([row[0] for row in rows]))
-    cur.close()
-    db.close()
+    # Create engine
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
+                           .format(sys.argv[1], sys.argv[2], sys.argv[3]),
+                           pool_pre_ping=True)
+
+    # Create session
+    Base.metadata.create_all(engine)
+    Session = sessionmaker(bind=engine)
+    session = Session()
+    # Query
+    for state in session.query(State).order_by(State.id).all():
+        print("{}: {}".format(state.id, state.name))
+    # Close session
+    session.close()
