@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-''' Python script that takes in a url
--sends a request
--and displays the response '''
+'''Takes in a url sends a request and displays the response.'''
 
 
 import urllib.request as request

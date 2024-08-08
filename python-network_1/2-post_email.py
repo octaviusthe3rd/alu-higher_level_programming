@@ -1,9 +1,5 @@
 #!/usr/bin/python3
-"""
-Python script that takes in a URL and an email
--sends a request to the passed URL
--and displays the body of the response
-"""
+"""Takes a URL, sends a request to the passed URL then displays the response"""
 from urllib import request, parse
 import sys
 

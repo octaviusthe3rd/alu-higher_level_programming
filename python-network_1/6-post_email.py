@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-""" Python script that sends a request to the passed, and
-finally displays the body of the response."""
+"""Sends a request to the passed url then displays the body's response."""
 
 import requests
 import sys

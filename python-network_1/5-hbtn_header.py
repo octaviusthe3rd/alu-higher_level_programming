@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-""" Python script that sends a request to the URL and displays the value of
-X-Request-Id in the response header"""
+"""Sends a request to the URL and displays the value of the response header"""
 
 import requests
 import sys
