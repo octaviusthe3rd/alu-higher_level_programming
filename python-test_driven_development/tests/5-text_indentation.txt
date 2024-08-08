@@ -17,7 +17,7 @@ Tony
 Traceback (most recent call last):
 TypeError: text must be a string
 
->>> text_indentation("ALU")
+>>> text_indentation("ALU. School")
 ALU.
 <BLANKLINE>
 School
