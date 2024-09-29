@@ -1,5 +1,5 @@
 #!/usr/bin/node
-const add = require('./13-add').add;
+const add = require('./add').add;
 const a = parseInt(process.argv[2]);
 const b = parseInt(process.argv[3]);
 
