@@ -10,4 +10,6 @@ function add(a, b) {
 if (!isNaN(firstInt) && !isNaN(secondInt)) {
 	let sum = add(firstInt, secondInt);
 	console.log(sum);
+}else{
+	console.log(NaN);
 }
