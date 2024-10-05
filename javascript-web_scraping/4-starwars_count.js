@@ -5,15 +5,17 @@ const url = process.argv[2];
 request(url, function (err, response, body) {
   if (err) {
     console.error(err);
-  } else {
-    try {
-      const results = JSON.parse(body).results || [];
-      const count = results.filter(movie => 
-        movie.characters.some(character => character.endsWith('/18/'))
-      ).length;
-      console.log(count);
-    } catch (parseError) {
-      console.error('Error parsing response:', parseError);
-    }
+    return; // Early return to avoid further execution
+  }
+
+  try {
+    const results = JSON.parse(body).results || [];
+    const count = results.filter(movie => 
+      movie.characters && movie.characters.some(character => character.endsWith('/18/'))
+    ).length;
+
+    console.log(count);
+  } catch (parseError) {
+    console.error('Error parsing response:', parseError);
   }
 });
