@@ -9,4 +9,3 @@ fs.writeFile(filePath, string, (error) => {
     console.log(error);
   }
 });
-
